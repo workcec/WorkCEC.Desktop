@@ -1,19 +1,19 @@
 {
   "files": ["app/**/*", "package.json"],
   "extraResources": ["build/icon.ico", "servers.json"],
-  "appId": "chat.rocket",
+  "appId": "chat.bin",
   "protocols": {
-        "name": "Rocket.Chat",
-        "schemes": ["rocketchat"]
+        "name": "BIN.Chat",
+        "schemes": ["binchat"]
   },
   "mac": {
     "category": "public.app-category.productivity",
     "target": ["dmg", "pkg", "zip", "mas"],
     "icon": "build/icon.icns",
     "bundleVersion": "100",
-    "helperBundleId": "chat.rocket.electron.helper",
+    "helperBundleId": "chat.bin.electron.helper",
     "type": "distribution",
-    "artifactName": "rocketchat-${version}-${os}.${ext}",
+    "artifactName": "binchat-${version}-${os}.${ext}",
     "extendInfo": {
       "NSMicrophoneUsageDescription": "I need access to your microphone to record the audio you want to send.",
       "NSCameraUsageDescription": "I need access to your camera to record the video you want to send."
@@ -47,7 +47,7 @@
     "entitlementsInherit": "build/entitlements.mas.inherit.plist",
     "hardenedRuntime": true,
     "asarUnpack": ["node_modules"],
-    "artifactName": "rocketchat-${version}-mas.${ext}"
+    "artifactName": "binchat-${version}-mas.${ext}"
   },
   "win": {
     "target": [
@@ -65,13 +65,13 @@
       }
     ],
     "icon": "build/icon.ico",
-    "publisherName": "Rocket.Chat Technologies Corp.",
+    "publisherName": "BIN.Chat Technologies Corp.",
     "legalTrademarks": "",
     "verifyUpdateCodeSignature": true,
     "requestedExecutionLevel": "asInvoker",
     "signAndEditExecutable": true,
     "signDlls": false,
-    "artifactName": "rocketchat-${version}-${os}-${arch}.${ext}"
+    "artifactName": "binchat-${version}-${os}-${arch}.${ext}"
   },
   "nsis": {
     "oneClick": false,
@@ -96,19 +96,19 @@
   },
   "appx": {
     "backgroundColor": "#2f343d",
-    "displayName": "Rocket.Chat",
-    "publisherDisplayName": "Rocket.Chat",
+    "displayName": "Bin.Chat",
+    "publisherDisplayName": "Bin.Chat",
     "languages": ["en-US", "en-GB", "pt-BR"]
   },
   "linux": {
     "target": ["AppImage", "tar.gz", "deb", "rpm", "snap"],
-    "executableName": "rocketchat-desktop",
+    "executableName": "Binchat-desktop",
     "category": "GNOME;GTK;Network;InstantMessaging",
     "desktop": {
-      "StartupWMClass": "Rocket.Chat",
-      "MimeType": "x-scheme-handler/rocketchat"
+      "StartupWMClass": "Bin.Chat",
+      "MimeType": "x-scheme-handler/Binchat"
     },
-    "artifactName": "rocketchat-${version}-${os}-${arch}.${ext}"
+    "artifactName": "Binchat-${version}-${os}-${arch}.${ext}"
   },
   "rpm": {
     "fpm": ["--rpm-rpmbuild-define=_build_id_links none"]
@@ -137,8 +137,8 @@
   "publish": [
     {
       "provider": "github",
-      "owner": "RocketChat",
-      "repo": "Rocket.Chat.Electron",
+      "owner": "BinChat",
+      "repo": "Bin.Chat.Electron",
       "vPrefixedTagName": false
     }
   ]

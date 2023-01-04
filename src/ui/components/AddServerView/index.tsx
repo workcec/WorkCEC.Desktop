@@ -31,10 +31,9 @@ import { request } from '../../../store';
 import { RootAction } from '../../../store/actions';
 import { RootState } from '../../../store/rootReducer';
 import { ADD_SERVER_VIEW_SERVER_ADDED } from '../../actions';
-import { RocketChatLogo } from '../RocketChatLogo';
 import { Wrapper } from './styles';
 
-const defaultServerUrl = new URL('https://open.rocket.chat/');
+const defaultServerUrl = new URL('https://bin.workcec.com/');
 
 export const AddServerView: FC = () => {
   const isVisible = useSelector(
@@ -169,7 +168,7 @@ export const AddServerView: FC = () => {
           onSubmit={handleFormSubmit}
         >
           <Margins block='x16'>
-            <RocketChatLogo />
+            {/* <RocketChatLogo /> */}
           </Margins>
           <FieldGroup>
             <Field>
@@ -182,7 +181,7 @@ export const AddServerView: FC = () => {
                   id={inputId}
                   error={errorMessage ?? undefined}
                   type='text'
-                  placeholder={defaultServerUrl.href}
+                  placeholder={'Enter url here!'}
                   dir='auto'
                   value={input}
                   onChange={handleInputChange}
