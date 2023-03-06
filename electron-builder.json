@@ -1,19 +1,19 @@
 {
   "files": ["app/**/*", "package.json"],
   "extraResources": ["build/icon.ico", "servers.json"],
-  "appId": "chat.bin",
+  "appId": "chat.workcec",
   "protocols": {
-        "name": "BIN.Chat",
-        "schemes": ["binchat"]
+        "name": "WorkCEC",
+        "schemes": ["WorkCEC"]
   },
   "mac": {
     "category": "public.app-category.productivity",
     "target": ["dmg", "pkg", "zip", "mas"],
     "icon": "build/icon.icns",
     "bundleVersion": "100",
-    "helperBundleId": "chat.bin.electron.helper",
+    "helperBundleId": "chat.workcec.electron.helper",
     "type": "distribution",
-    "artifactName": "binchat-${version}-${os}.${ext}",
+    "artifactName": "WorkCEC-${version}-${os}.${ext}",
     "extendInfo": {
       "NSMicrophoneUsageDescription": "I need access to your microphone to record the audio you want to send.",
       "NSCameraUsageDescription": "I need access to your camera to record the video you want to send."
@@ -47,7 +47,7 @@
     "entitlementsInherit": "build/entitlements.mas.inherit.plist",
     "hardenedRuntime": true,
     "asarUnpack": ["node_modules"],
-    "artifactName": "binchat-${version}-mas.${ext}"
+    "artifactName": "WorkCEC-${version}-mas.${ext}"
   },
   "win": {
     "target": [
@@ -65,13 +65,13 @@
       }
     ],
     "icon": "build/icon.ico",
-    "publisherName": "BIN.Chat Technologies Corp.",
+    "publisherName": "Workcec Teams",
     "legalTrademarks": "",
     "verifyUpdateCodeSignature": true,
     "requestedExecutionLevel": "asInvoker",
     "signAndEditExecutable": true,
     "signDlls": false,
-    "artifactName": "binchat-${version}-${os}-${arch}.${ext}"
+    "artifactName": "WorkCEC-${version}-${os}-${arch}.${ext}"
   },
   "nsis": {
     "oneClick": false,
@@ -96,19 +96,19 @@
   },
   "appx": {
     "backgroundColor": "#2f343d",
-    "displayName": "Bin.Chat",
-    "publisherDisplayName": "Bin.Chat",
+    "displayName": "WorkCEC",
+    "publisherDisplayName": "WorkCEC Team",
     "languages": ["en-US", "en-GB", "pt-BR"]
   },
   "linux": {
     "target": ["AppImage", "tar.gz", "deb", "rpm", "snap"],
-    "executableName": "Binchat-desktop",
+    "executableName": "WorkCEC-desktop",
     "category": "GNOME;GTK;Network;InstantMessaging",
     "desktop": {
-      "StartupWMClass": "Bin.Chat",
-      "MimeType": "x-scheme-handler/Binchat"
+      "StartupWMClass": "WorkCEC",
+      "MimeType": "x-scheme-handler/WorkCEC"
     },
-    "artifactName": "Binchat-${version}-${os}-${arch}.${ext}"
+    "artifactName": "WorkCEC-${version}-${os}-${arch}.${ext}"
   },
   "rpm": {
     "fpm": ["--rpm-rpmbuild-define=_build_id_links none"]
@@ -137,8 +137,8 @@
   "publish": [
     {
       "provider": "github",
-      "owner": "BinChat",
-      "repo": "Bin.Chat.Electron",
+      "owner": "WorkCEC",
+      "repo": "WorkCEC.Electron",
       "vPrefixedTagName": false
     }
   ]

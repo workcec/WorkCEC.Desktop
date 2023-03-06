@@ -33,8 +33,6 @@ import { RootState } from '../../../store/rootReducer';
 import { ADD_SERVER_VIEW_SERVER_ADDED } from '../../actions';
 import { Wrapper } from './styles';
 
-const defaultServerUrl = new URL('https://bin.workcec.com/');
-
 export const AddServerView: FC = () => {
   const isVisible = useSelector(
     ({ currentView }: RootState) => currentView === 'add-new-server'
@@ -120,11 +118,6 @@ export const AddServerView: FC = () => {
     event.preventDefault();
 
     const trimmedInput = input.trim();
-
-    if (!trimmedInput) {
-      addServer(defaultServerUrl.href);
-      return;
-    }
 
     await resolveServerUrl(trimmedInput);
   };

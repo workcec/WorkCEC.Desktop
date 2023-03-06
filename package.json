@@ -3,25 +3,18 @@
   "workspaces": [
     "workspaces/*"
   ],
-  "name": "BinChat",
+  "name": "workcec",
   "description": "Official OSX, Windows, and Linux Desktop Clients for Bin chat",
-  "version": "1.1.0",
-  "author": "Bin Support <support@bin.com>",
+  "version": "1.2.0",
+  "author": "Workcec Support <support@workcec.com>",
   "copyright": "© 2016-2021, ",
   "homepage": "",
   "license": "MIT",
   "keywords": [
-    "rocketchat",
+    "workcec",
     "desktop",
     "electron"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RocketChat/Rocket.Chat.Electron.git"
-  },
-  "bugs": {
-    "url": "https://github.com/RocketChat/Rocket.Chat.Electron/issues"
-  },
   "main": "app/main.js",
   "scripts": {
     "postinstall": "run-s install-app-deps clean",
@@ -132,5 +125,5 @@
     "node": ">=12.8.x",
     "yarn": ">=1.22.x"
   },
-  "productName": "BIN.CHAT"
+  "productName": "WorkCEC"
 }
