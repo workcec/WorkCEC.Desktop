@@ -3,8 +3,8 @@
   "extraResources": ["build/icon.ico", "servers.json"],
   "appId": "chat.workcec",
   "protocols": {
-        "name": "WorkCec",
-        "schemes": ["WorkCec"]
+        "name": "WorkCEC",
+        "schemes": ["WorkCEC"]
   },
   "mac": {
     "category": "public.app-category.productivity",
@@ -13,7 +13,7 @@
     "bundleVersion": "100",
     "helperBundleId": "chat.workcec.electron.helper",
     "type": "distribution",
-    "artifactName": "WorkCec-${version}-${os}.${ext}",
+    "artifactName": "WorkCEC-${version}-${os}.${ext}",
     "extendInfo": {
       "NSMicrophoneUsageDescription": "I need access to your microphone to record the audio you want to send.",
       "NSCameraUsageDescription": "I need access to your camera to record the video you want to send."
@@ -47,7 +47,7 @@
     "entitlementsInherit": "build/entitlements.mas.inherit.plist",
     "hardenedRuntime": true,
     "asarUnpack": ["node_modules"],
-    "artifactName": "WorkCec-${version}-mas.${ext}"
+    "artifactName": "WorkCEC-${version}-mas.${ext}"
   },
   "win": {
     "target": [
@@ -71,7 +71,7 @@
     "requestedExecutionLevel": "asInvoker",
     "signAndEditExecutable": true,
     "signDlls": false,
-    "artifactName": "WorkCec-${version}-${os}-${arch}.${ext}"
+    "artifactName": "WorkCEC-${version}-${os}-${arch}.${ext}"
   },
   "nsis": {
     "oneClick": false,
@@ -96,19 +96,19 @@
   },
   "appx": {
     "backgroundColor": "#2f343d",
-    "displayName": "WorkCec",
-    "publisherDisplayName": "WorkCec Team",
+    "displayName": "WorkCEC",
+    "publisherDisplayName": "WorkCEC Team",
     "languages": ["en-US", "en-GB", "pt-BR"]
   },
   "linux": {
     "target": ["AppImage", "tar.gz", "deb", "rpm", "snap"],
-    "executableName": "WorkCec-desktop",
+    "executableName": "WorkCEC-desktop",
     "category": "GNOME;GTK;Network;InstantMessaging",
     "desktop": {
-      "StartupWMClass": "WorkCec",
-      "MimeType": "x-scheme-handler/WorkCec"
+      "StartupWMClass": "WorkCEC",
+      "MimeType": "x-scheme-handler/WorkCEC"
     },
-    "artifactName": "WorkCec-${version}-${os}-${arch}.${ext}"
+    "artifactName": "WorkCEC-${version}-${os}-${arch}.${ext}"
   },
   "rpm": {
     "fpm": ["--rpm-rpmbuild-define=_build_id_links none"]
@@ -137,8 +137,8 @@
   "publish": [
     {
       "provider": "github",
-      "owner": "WorkCec",
-      "repo": "WorkCec.Electron",
+      "owner": "WorkCEC",
+      "repo": "WorkCEC.Electron",
       "vPrefixedTagName": false
     }
   ]
