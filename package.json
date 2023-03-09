@@ -4,10 +4,10 @@
     "workspaces/*"
   ],
   "name": "workcec",
-  "description": "Official OSX, Windows, and Linux Desktop Clients for Bin chat",
-  "version": "1.2.0",
+  "description": "Official OSX, Windows, and Linux Desktop Clients for WorkCEC",
+  "version": "1.2.1",
   "author": "Workcec Support <support@workcec.com>",
-  "copyright": "© 2016-2021, ",
+  "copyright": "© 2022-2023, ",
   "homepage": "",
   "license": "MIT",
   "keywords": [
@@ -25,7 +25,7 @@
     "build-win": "yarn --silent electron-builder --publish never --win",
     ".:build:rollup": "rollup -c",
     ".:build:workspaces": "yarn workspaces run build",
-    "release": "yarn electron-builder --publish onTagOrDraft --x64",
+    "release": "yarn electron-builder --publish never --x64",
     "build:watch": "rollup -c -w",
     "install-app-deps": "electron-builder install-app-deps",
     "test": "xvfb-maybe jest",
