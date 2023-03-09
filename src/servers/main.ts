@@ -84,7 +84,7 @@ export const resolveServerUrl = async (
     if (
       !/(^https?:\/\/)|(\.)|(^([^:]+:[^@]+@)?localhost(:\d+)?$)/.test(input)
     ) {
-      return resolveServerUrl(`https://${input}.rocket.chat`);
+      return resolveServerUrl(`https://${input}.workcec.com`);
     }
 
     if (error?.name === 'AbortError') {

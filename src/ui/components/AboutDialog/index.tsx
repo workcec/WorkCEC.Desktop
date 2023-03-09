@@ -20,9 +20,9 @@ import {
   ABOUT_DIALOG_DISMISSED,
 } from '../../actions';
 import { Dialog } from '../Dialog';
-import { RocketChatLogo } from '../RocketChatLogo';
+import { WorkCECLogo } from '../WorkCECLogo';
 
-const copyright = `© 2016-${new Date().getFullYear()}, Rocket.Chat`;
+const copyright = `© 2022-${new Date().getFullYear()}, WorkCEC`;
 
 export const AboutDialog: FC = () => {
   const appVersion = useSelector(({ appVersion }: RootState) => appVersion);
@@ -122,7 +122,7 @@ export const AboutDialog: FC = () => {
       onClose={() => dispatch({ type: ABOUT_DIALOG_DISMISSED })}
     >
       <Margins block='x16'>
-        <RocketChatLogo />
+        <WorkCECLogo />
 
         <Box alignSelf='center'>
           <Trans t={t} i18nKey='dialog.about.version'>
@@ -133,7 +133,7 @@ export const AboutDialog: FC = () => {
           </Trans>
         </Box>
 
-        {canUpdate && (
+        {/* {canUpdate && (
           <Box display='flex' flexDirection='column'>
             <Margins block='x8'>
               {!checkingForUpdates && (
@@ -177,7 +177,7 @@ export const AboutDialog: FC = () => {
               </Field.Row>
             </Margins>
           </Box>
-        )}
+        )} */}
 
         <Box alignSelf='center' fontScale='micro'>
           {t('dialog.about.copyright', { copyright })}
