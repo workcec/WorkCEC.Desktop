@@ -3,7 +3,6 @@ import {
   app,
   shell,
   MenuItemConstructorOptions,
-  BrowserWindow,
 } from 'electron';
 import i18next from 'i18next';
 import { createSelector, createStructuredSelector } from 'reselect';
