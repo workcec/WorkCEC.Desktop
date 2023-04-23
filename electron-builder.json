@@ -43,6 +43,7 @@
     "overwriteAction": "upgrade"
   },
   "mas": {
+    "icon": "build/icon.icns",
     "entitlements": "build/entitlements.mas.plist",
     "entitlementsInherit": "build/entitlements.mas.inherit.plist",
     "hardenedRuntime": true,
