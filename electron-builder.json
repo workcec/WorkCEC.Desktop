@@ -1,7 +1,7 @@
 {
   "files": ["app/**/*", "package.json"],
   "extraResources": ["build/icon.ico", "servers.json"],
-  "appId": "WorkCEC",
+  "appId": "bin.workcec.app",
   "protocols": {
         "name": "WorkCEC",
         "schemes": ["WorkCEC"]
