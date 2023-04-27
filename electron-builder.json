@@ -10,7 +10,7 @@
     "category": "public.app-category.productivity",
     "target": ["dmg", "pkg", "zip", "mas"],
     "icon": "build/icon.icns",
-    "bundleVersion": "100",
+    "bundleVersion": "105",
     "helperBundleId": "chat.workcec.electron.helper",
     "type": "distribution",
     "artifactName": "WorkCEC-${version}-${os}.${ext}",
@@ -46,7 +46,7 @@
     "icon": "build/icon.icns",
     "entitlements": "build/entitlements.mas.plist",
     "entitlementsInherit": "build/entitlements.mas.inherit.plist",
-    "hardenedRuntime": true,
+    "hardenedRuntime": false,
     "asarUnpack": ["node_modules"],
     "artifactName": "WorkCEC-${version}-mas.${ext}"
   },

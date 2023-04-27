@@ -1,9 +1,4 @@
-import {
-  Menu,
-  app,
-  shell,
-  MenuItemConstructorOptions,
-} from 'electron';
+import { Menu, app, shell, MenuItemConstructorOptions } from 'electron';
 import i18next from 'i18next';
 import { createSelector, createStructuredSelector } from 'reselect';
 
@@ -675,13 +670,15 @@ const createHelpMenu = createSelector(
         },
       ]),
       { type: 'separator' },
-      {
-        id: 'learnMore',
-        label: t('menus.learnMore'),
-        click: () => {
-          shell.openExternal('https://workcec.com');
+      ...on(process.platform !== 'darwin', () => [
+        {
+          id: 'learnMore',
+          label: t('menus.learnMore'),
+          click: () => {
+            shell.openExternal('https://workcec.com');
+          },
         },
-      },
+      ]),
       ...on(process.platform !== 'darwin', () => [
         {
           id: 'about',
