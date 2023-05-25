@@ -41,8 +41,8 @@ export const createNotification = async ({
   onEvent?: (eventDescriptor: { type: string; detail: unknown }) => void;
 }): Promise<unknown> => {
 
-  if (options.body == "jitsi_call") {
-    options.body = "is calling...";
+  if (options.body === 'jitsi_call') {
+    options.body = 'is calling...';
   }
 
   const id = await request(
@@ -52,8 +52,8 @@ export const createNotification = async ({
         title,
         ...(icon
           ? {
-              icon: normalizeIconUrl(icon),
-            }
+            icon: normalizeIconUrl(icon),
+          }
           : {}),
         ...options,
       },
