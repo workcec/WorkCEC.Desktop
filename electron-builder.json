@@ -137,8 +137,8 @@
   "publish": [
     {
       "provider": "github",
-      "owner": "WorkCEC",
-      "repo": "WorkCEC.Electron",
+      "owner": "workcec",
+      "repo": "WorkCEC.Desktop",
       "vPrefixedTagName": false
     }
   ]

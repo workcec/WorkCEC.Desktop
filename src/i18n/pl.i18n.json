@@ -53,7 +53,7 @@
     "update": {
       "title": "Dostępna aktualizacja",
       "announcement": "Nowa aktualizacja jest dostępna",
-      "message": "Nowa wersja aplikacji Rocket.Chat Desktop jest dostępna!",
+      "message": "Nowa wersja aplikacji WorkCEC Desktop jest dostępna!",
       "currentVersion": "Bieżąca wersja:",
       "newVersion": "Nowa wersja:",
       "install": "Zainstaluj aktualizację",
@@ -148,7 +148,7 @@
   },
   "selfxss": {
     "title": "Stop!",
-    "description": "To jest funkcja przeglądarki dedykowana programistom. Jeśli ktoś powiedział Ci, by skopiować i wkleić coś tutaj aby włączyć funcjonalność Rocket.Chata lub \"zhackować\" czyjeś konto, to jest to oszustwo a Ty dasz temu komuś dostęp do swojego konta Rocket.Chat.",
+    "description": "To jest funkcja przeglądarki dedykowana programistom. Jeśli ktoś powiedział Ci, by skopiować i wkleić coś tutaj aby włączyć funcjonalność WorkCECa lub \"zhackować\" czyjeś konto, to jest to oszustwo a Ty dasz temu komuś dostęp do swojego konta WorkCEC.",
     "moreInfo": "Wejdź tutaj https://go.rocket.chat/i/xss po więcej informacji."
   },
   "sidebar": {

@@ -52,7 +52,7 @@
     "update": {
       "title": "Güncelleme kullanılabilir",
       "announcement": "Yeni bir sürüm kullanılabilir",
-      "message": "Rocket.Chat için yeni bir masaüstü sürümü mevcut!",
+      "message": "WorkCEC için yeni bir masaüstü sürümü mevcut!",
       "currentVersion": "Mevcut versiyon:",
       "newVersion": "Yeni versiyon:",
       "install": "Güncellemeyi yükle",
@@ -138,7 +138,7 @@
   },
   "selfxss": {
     "title": "Dur!",
-    "description": "Bu, geliştiricilere yönelik bir tarayıcı özelliğidir. Birisi size bir Rocket.Chat özelliğini etkinleştirmeniz veya herhangi bir şeyi kopyalayıp yapıştırmanızı söylediyse, bu bir aldatmacadır ve onlara Rocket.Chat hesabınıza erişme izni verir.",
+    "description": "Bu, geliştiricilere yönelik bir tarayıcı özelliğidir. Birisi size bir WorkCEC özelliğini etkinleştirmeniz veya herhangi bir şeyi kopyalayıp yapıştırmanızı söylediyse, bu bir aldatmacadır ve onlara WorkCEC hesabınıza erişme izni verir.",
     "moreInfo": "Bkz. https://go.rocket.chat/i/xss"
   },
   "sidebar": {
