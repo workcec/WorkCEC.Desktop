@@ -5,9 +5,9 @@
   ],
   "name": "workcec",
   "description": "Official OSX, Windows, and Linux Desktop Clients for WorkCEC",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "author": "Workcec Support <support@workcec.com>",
-  "copyright": "© 2022-2023, ",
+  "copyright": "© 2023, ",
   "homepage": "",
   "license": "MIT",
   "keywords": [
