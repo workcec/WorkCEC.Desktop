@@ -61,7 +61,7 @@
     "update": {
       "title": "Frissítés érhető el",
       "announcement": "Új frissítés érhető el",
-      "message": "Elérhető a Rocket.Chat asztali alkalmazás új verziója!",
+      "message": "Elérhető a WorkCEC asztali alkalmazás új verziója!",
       "currentVersion": "Jelenlegi verzió:",
       "newVersion": "Új verzió:",
       "install": "Frissítés telepítése",
@@ -234,7 +234,7 @@
   },
   "selfxss": {
     "title": "Megállj!",
-    "description": "Ez a böngészőfunkció fejlesztők számára készült. Ha valaki azt mondja, hogy másoljon le és illesszen be valamit ide, azért hogy egy Rocket.Chat funkciót engedélyezzen vagy „feltörje” valaki más fiókját, akkor az átverés, és hozzáférést fog adni nekik az Ön Rocket.Chat fiókjához.",
+    "description": "Ez a böngészőfunkció fejlesztők számára készült. Ha valaki azt mondja, hogy másoljon le és illesszen be valamit ide, azért hogy egy WorkCEC funkciót engedélyezzen vagy „feltörje” valaki más fiókját, akkor az átverés, és hozzáférést fog adni nekik az Ön WorkCEC fiókjához.",
     "moreInfo": "További információkért nézze meg a https://go.rocket.chat/i/xss oldalt."
   },
   "sidebar": {

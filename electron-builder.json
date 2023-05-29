@@ -1,7 +1,7 @@
 {
   "files": ["app/**/*", "package.json"],
   "extraResources": ["build/icon.ico", "servers.json"],
-  "appId": "WorkCEC",
+  "appId": "bin.workcec.app",
   "protocols": {
         "name": "WorkCEC",
         "schemes": ["WorkCEC"]
@@ -43,6 +43,7 @@
     "overwriteAction": "upgrade"
   },
   "mas": {
+    "icon": "build/icon.icns",
     "entitlements": "build/entitlements.mas.plist",
     "entitlementsInherit": "build/entitlements.mas.inherit.plist",
     "hardenedRuntime": true,
@@ -137,8 +138,8 @@
   "publish": [
     {
       "provider": "github",
-      "owner": "WorkCEC",
-      "repo": "WorkCEC.Electron",
+      "owner": "workcec",
+      "repo": "WorkCEC.Desktop",
       "vPrefixedTagName": false
     }
   ]

@@ -249,8 +249,9 @@ export const setupUpdates = async (): Promise<void> => {
     });
   });
 
-  let disabledCheckUpdate = true;
+  let disabledCheckUpdate = false;
   if (doCheckForUpdatesOnStartup && !disabledCheckUpdate) {
+    console.log("Checking for update");
     try {
       await autoUpdater.checkForUpdates();
     } catch (error) {

@@ -1,4 +1,4 @@
 {
-    "isTrayIconEnabled": false,
-    "isMinimizeOnCloseEnabled": false
+    "isTrayIconEnabled": true,
+    "isMinimizeOnCloseEnabled": true
  }
