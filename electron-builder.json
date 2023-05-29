@@ -1,5 +1,5 @@
 {
-  "files": ["app/**/*", "package.json"],
+  "files": ["app/**/*", "package.json", "dev-app-update.yml"],
   "extraResources": ["build/icon.ico", "servers.json"],
   "appId": "bin.workcec.app",
   "protocols": {

@@ -21,7 +21,7 @@ import {
 import { Dialog } from '../Dialog';
 import { WorkCECLogo } from '../WorkCECLogo';
 
-const copyright = `© 2022-${new Date().getFullYear()}, WorkCEC`;
+const copyright = `© ${new Date().getFullYear()}, WorkCEC`;
 
 export const AboutDialog: FC = () => {
   const appVersion = useSelector(({ appVersion }: RootState) => appVersion);
