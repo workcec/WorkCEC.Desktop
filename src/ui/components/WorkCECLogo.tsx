@@ -1,7 +1,7 @@
 import * as React from "react";
 export const WorkCECLogo = () => (
   <svg
-    width={354}
+    width={200}
     height={86}
     viewBox="0 0 354 86"
     fill="none"
