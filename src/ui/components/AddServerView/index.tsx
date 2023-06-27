@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Button,
   ButtonGroup,
@@ -9,15 +10,8 @@ import {
   Tile,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useAutoFocus } from '@rocket.chat/fuselage-hooks';
-import React, {
-  useCallback,
-  useEffect,
-  useState,
-  useMemo,
-  FC,
-  FormEvent,
-  ChangeEvent,
-} from 'react';
+import  { FC, FormEvent, ChangeEvent } from 'react';
+import React, { useCallback, useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -31,7 +25,10 @@ import { request } from '../../../store';
 import { RootAction } from '../../../store/actions';
 import { RootState } from '../../../store/rootReducer';
 import { ADD_SERVER_VIEW_SERVER_ADDED } from '../../actions';
+import { WorkCECLogo } from '../WorkCECLogo';
+import {BTN_LIGHT } from '../../assets/css-variable/constant';
 import { Wrapper } from './styles';
+// import './style.css';
 
 export const AddServerView: FC = () => {
   const isVisible = useSelector(
@@ -152,7 +149,9 @@ export const AddServerView: FC = () => {
   return (
     <Wrapper>
       {isOnLine ? (
-        <Tile
+        <Tile style={{
+          borderRadius:"16px"
+        }}
           is='form'
           width='x368'
           maxWidth='100%'
@@ -160,9 +159,14 @@ export const AddServerView: FC = () => {
           method='/'
           onSubmit={handleFormSubmit}
         >
-          <Margins block='x16'>
-            {/* <RocketChatLogo /> */}
-          </Margins>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <WorkCECLogo />
+          </div>
           <FieldGroup>
             <Field>
               <Field.Label htmlFor={inputId}>
@@ -188,6 +192,12 @@ export const AddServerView: FC = () => {
                 type='submit'
                 primary
                 disabled={validationState !== 'idle'}
+                style={{
+                  width: '100%',
+                  background: BTN_LIGHT,
+                  border:"none",
+                  borderRadius:"10px"
+                }}
               >
                 {(validationState === 'idle' && t('landing.connect')) ||
                   (validationState === 'validating' &&

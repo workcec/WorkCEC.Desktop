@@ -6,6 +6,7 @@ import { Store } from 'redux';
 
 import { Shell } from './Shell';
 import { ErrorCatcher } from './utils/ErrorCatcher';
+// import '../assets/css/custom-style.css';
 
 type AppProps = {
   reduxStore: Store;
