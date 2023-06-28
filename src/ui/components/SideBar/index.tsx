@@ -12,6 +12,7 @@ import {
   SIDE_BAR_ADD_NEW_SERVER_CLICKED,
   SIDE_BAR_DOWNLOADS_BUTTON_CLICKED,
   SIDE_BAR_SETTINGS_BUTTON_CLICKED,
+  SIDE_BAR_DARKMODE_BUTTON_CLICKED
 } from '../../actions';
 import { useServers } from '../hooks/useServers';
 import ServerButton from './ServerButton';
@@ -37,6 +38,11 @@ export const SideBar: FC = () => {
   const isAddNewServersEnabled = useSelector(
     ({ isAddNewServersEnabled }: RootState) => isAddNewServersEnabled
   );
+
+  const isDarkmode = useSelector(
+    (state: RootState) => state.rootWindowState.isDarkmode
+  );
+
   const isVisible = servers.length > 0 && isSideBarEnabled;
   const style = useMemo(
     () => servers.find(({ selected }) => selected)?.style || {},
@@ -60,6 +66,9 @@ export const SideBar: FC = () => {
   };
   const handelSettingsButtonClicked = (): void => {
     dispatch({ type: SIDE_BAR_SETTINGS_BUTTON_CLICKED });
+  };
+  const handelDarkmodeButtonClicked = async (): Promise<void> => {
+    dispatch({ type: SIDE_BAR_DARKMODE_BUTTON_CLICKED, payload: !isDarkmode });
   };
   const { t } = useTranslation();
 
@@ -127,6 +136,14 @@ export const SideBar: FC = () => {
               isSelected={currentView === 'settings'}
             >
               <Icon name='cog' />
+            </SidebarActionButton>
+          </Button>
+          <Button>
+            <SidebarActionButton
+              tooltip={isDarkmode ? 'Darkmode' : 'Lightmode'}
+              onClick={handelDarkmodeButtonClicked}
+            >
+              <Icon name='check' />
             </SidebarActionButton>
           </Button>
         </BottomButtons>

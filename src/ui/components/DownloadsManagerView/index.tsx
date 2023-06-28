@@ -16,7 +16,12 @@ import { Download, DownloadStatus } from '../../../downloads/common';
 import { RootState } from '../../../store/rootReducer';
 import DownloadItem from './DownloadItem';
 
-const DownloadsManagerView: FC = () => {
+export interface DownloadsManagerViewProps {
+  backgroundColor: string;
+  color: string
+}
+
+const DownloadsManagerView: FC<DownloadsManagerViewProps> = ({ backgroundColor, color }) => {
   const isVisible = useSelector(
     ({ currentView }: RootState) => currentView === 'downloads'
   );
@@ -155,7 +160,7 @@ const DownloadsManagerView: FC = () => {
       display={isVisible ? 'flex' : 'none'}
       flexDirection='column'
       height='100vh'
-      backgroundColor='surface'
+      backgroundColor={backgroundColor}
     >
       <Box
         minHeight={64}
@@ -165,7 +170,7 @@ const DownloadsManagerView: FC = () => {
         flexWrap='nowrap'
         alignItems='center'
       >
-        <Box is='div' color='default' fontScale='h1'>
+        <Box is='div' color={color} fontScale='h1'>
           {t('downloads.title')}
         </Box>
       </Box>

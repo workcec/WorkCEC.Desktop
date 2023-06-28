@@ -216,3 +216,5 @@ export const request = <
       },
     });
   });
+
+  export { reduxStore }
