@@ -55,8 +55,8 @@ export const SettingsView: FC<SettingsViewProps> = ({ backgroundColor, color }) 
         </Tabs.Item>
       </Tabs>
       <Box m='x24'>
-        {(currentTab === 'general' && <GeneralTab />) ||
-          (currentTab === 'certificates' && <CertificatesTab />)}
+        {(currentTab === 'general' && <GeneralTab color = { color } />) ||
+          (currentTab === 'certificates' && <CertificatesTab color = { color} />)}
       </Box>
     </Box>
   );

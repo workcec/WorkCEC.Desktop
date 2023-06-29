@@ -9,6 +9,7 @@ import { SETTINGS_SET_IS_SIDE_BAR_ENABLED_CHANGED } from '../../../actions';
 
 type Props = {
   className?: string;
+  color: string;
 };
 
 export const SideBar: FC<Props> = (props) => {
@@ -32,7 +33,7 @@ export const SideBar: FC<Props> = (props) => {
     <Field className={props.className}>
       <Field.Row>
         <ToggleSwitch onChange={handleChange} checked={isSideBarEnabled} />
-        <Field.Label htmlFor='toggle-switch'>
+        <Field.Label htmlFor='toggle-switch' style={{ color: props.color }}>
           {t('settings.options.sidebar.title')}
         </Field.Label>
       </Field.Row>

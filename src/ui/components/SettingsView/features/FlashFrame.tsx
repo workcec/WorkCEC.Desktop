@@ -9,6 +9,7 @@ import { SETTINGS_SET_FLASHFRAME_OPT_IN_CHANGED } from '../../../actions';
 
 type Props = {
   className?: string;
+  color: string;
 };
 
 export const FlashFrame: FC<Props> = (props) => {
@@ -32,7 +33,7 @@ export const FlashFrame: FC<Props> = (props) => {
     <Field className={props.className}>
       <Field.Row>
         <ToggleSwitch onChange={handleChange} checked={isFlashFrameEnabled} />
-        <Field.Label htmlFor='toggle-switch'>
+        <Field.Label htmlFor='toggle-switch' style={{ color: props.color }}>
           {process.platform !== 'darwin'
             ? t('settings.options.flashFrame.title')
             : t('settings.options.flashFrame.titleDarwin')}

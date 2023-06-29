@@ -44,8 +44,8 @@ export const Shell: FC = () => {
         <ViewsWrapper>
           <ServersView />
           <AddServerView />
-          <DownloadsManagerView backgroundColor={isDarkmode ? '#0E1621' : 'surface'} color={isDarkmode ? 'white' : 'default'} />
-          <SettingsView backgroundColor={isDarkmode ? '#0E1621' : 'surface'} color={isDarkmode ? 'white' : 'default'} />
+          <DownloadsManagerView backgroundColor={isDarkmode ? '#17212B' : 'surface'} color={isDarkmode ? 'white' : 'black'} />
+          <SettingsView backgroundColor={isDarkmode ? '#17212B' : 'surface'} color={isDarkmode ? 'white' : 'black'} />
         </ViewsWrapper>
       </Wrapper>
       <AboutDialog />

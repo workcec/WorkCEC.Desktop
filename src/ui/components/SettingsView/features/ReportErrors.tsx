@@ -9,6 +9,7 @@ import { SETTINGS_SET_REPORT_OPT_IN_CHANGED } from '../../../actions';
 
 type Props = {
   className?: string;
+  color: string;
 };
 
 export const ReportErrors: FC<Props> = (props) => {
@@ -36,7 +37,7 @@ export const ReportErrors: FC<Props> = (props) => {
           onChange={handleChange}
           checked={isReportEnabled}
         />
-        <Field.Label htmlFor='toggle-switch'>
+        <Field.Label htmlFor='toggle-switch' style={{ color: props.color }}>
           {t('settings.options.report.title')}
         </Field.Label>
       </Field.Row>

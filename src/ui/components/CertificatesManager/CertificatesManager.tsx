@@ -6,7 +6,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/rootReducer';
 import CertificateItem from './CertificateItem';
 
-export const CertificatesManager: FC = () => {
+export interface Props {
+  color: string
+}
+
+export const CertificatesManager: FC<Props> = (props) => {
   const trustedCertificates = useSelector(
     ({ trustedCertificates }: RootState) => trustedCertificates
   );
@@ -19,7 +23,7 @@ export const CertificatesManager: FC = () => {
   return (
     <Box is='form' padding={24} flexGrow={1} flexShrink={1}>
       <Box flexGrow={1} flexShrink={1} paddingBlock={8}>
-        <Label>{t('certificatesManager.trustedCertificates')}</Label>
+        <Label style={{ color: props.color }}>{t('certificatesManager.trustedCertificates')}</Label>
         <Table sticky striped fixed>
           <Table.Head>
             <Table.Row>
@@ -37,7 +41,7 @@ export const CertificatesManager: FC = () => {
         </Table>
       </Box>
       <Box marginBlockStart={50} flexGrow={1} flexShrink={1} paddingBlock={8}>
-        <Label>{t('certificatesManager.notTrustedCertificates')}</Label>
+        <Label style={{ color: props.color }}>{t('certificatesManager.notTrustedCertificates')}</Label>
         <Table sticky striped fixed>
           <Table.Head>
             <Table.Row>
