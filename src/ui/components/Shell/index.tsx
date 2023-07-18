@@ -32,7 +32,7 @@ export const Shell: FC = () => {
   }, [appPath]);
 
   const isDarkmode = useSelector(
-    (state: RootState) => state.rootWindowState.isDarkmode
+    (state: RootState) => state.rootWindowState.isDarkMode
   );
 
   return (

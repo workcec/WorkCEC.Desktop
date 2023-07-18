@@ -11,9 +11,7 @@ import { RootState } from '../../../store/rootReducer';
 import {
   SIDE_BAR_ADD_NEW_SERVER_CLICKED,
   SIDE_BAR_DOWNLOADS_BUTTON_CLICKED,
-  SIDE_BAR_SETTINGS_BUTTON_CLICKED,
-  SIDE_BAR_DARKMODE_BUTTON_CLICKED
-} from '../../actions';
+  SIDE_BAR_SETTINGS_BUTTON_CLICKED} from '../../actions';
 import { useServers } from '../hooks/useServers';
 import ServerButton from './ServerButton';
 import {
@@ -40,7 +38,7 @@ export const SideBar: FC = () => {
   );
 
   const isDarkmode = useSelector(
-    (state: RootState) => state.rootWindowState.isDarkmode
+    (state: RootState) => state.rootWindowState.isDarkMode
   );
 
   const isVisible = servers.length > 0 && isSideBarEnabled;
@@ -68,14 +66,17 @@ export const SideBar: FC = () => {
     dispatch({ type: SIDE_BAR_SETTINGS_BUTTON_CLICKED });
   };
   const handelDarkmodeButtonClicked = async (): Promise<void> => {
-    dispatch({ type: SIDE_BAR_DARKMODE_BUTTON_CLICKED, payload: !isDarkmode });
+    // dispatch({ type: SERVER_DARKMODE_CHANGED, payload: !isDarkmode });
   };
   const { t } = useTranslation();
 
   const currentView = useSelector(({ currentView }: RootState) => currentView);
-
+  const newStyle = {
+    background: 'var(--sidebar-background)',
+    color : 'var(--sidebar-item-text-color)'
+  }
   return (
-    <Wrapper sideBarStyle={style} isVisible={isVisible}>
+    <Wrapper sideBarStyle={isDarkmode? newStyle : style} isVisible={isVisible}>
       <Content withWindowButtons={process.platform === 'darwin'}>
         <ServerList>
           {sortedServers.map((server, order) => (
@@ -138,14 +139,14 @@ export const SideBar: FC = () => {
               <Icon name='cog' />
             </SidebarActionButton>
           </Button>
-          <Button>
+          {/* <Button>
             <SidebarActionButton
               tooltip={isDarkmode ? 'Darkmode' : 'Lightmode'}
               onClick={handelDarkmodeButtonClicked}
             >
               <Icon name='check' />
             </SidebarActionButton>
-          </Button>
+          </Button> */}
         </BottomButtons>
       </Content>
     </Wrapper>

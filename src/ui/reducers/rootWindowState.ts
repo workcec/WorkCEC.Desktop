@@ -2,13 +2,20 @@ import { Reducer } from 'redux';
 
 import { APP_SETTINGS_LOADED } from '../../app/actions';
 import { ActionOf } from '../../store/actions';
-import { ROOT_WINDOW_STATE_CHANGED, SIDE_BAR_DARKMODE_BUTTON_CLICKED } from '../actions';
+import {
+  ROOT_WINDOW_STATE_CHANGED,
+  SERVER_DARKMODE_CHANGED,
+  SERVER_SELECTED_URL_CHANGED,
+  WEBVIEW_SIDEBAR_STYLE_CHANGED,
+} from '../actions';
 import { WindowState } from '../common';
+import { dispatch } from '../../store';
 
 type RootWindowStateAction =
   | ActionOf<typeof ROOT_WINDOW_STATE_CHANGED>
   | ActionOf<typeof APP_SETTINGS_LOADED>
-  | ActionOf<typeof SIDE_BAR_DARKMODE_BUTTON_CLICKED>;
+  | ActionOf<typeof SERVER_DARKMODE_CHANGED>
+  | ActionOf<typeof SERVER_SELECTED_URL_CHANGED>;
 
 export const rootWindowState: Reducer<WindowState, RootWindowStateAction> = (
   state = {
@@ -24,7 +31,8 @@ export const rootWindowState: Reducer<WindowState, RootWindowStateAction> = (
       width: 1000,
       height: 600,
     },
-    isDarkmode: false,
+    isDarkMode: false,
+    selectedUrl: '',
   },
   action
 ) => {
@@ -36,9 +44,26 @@ export const rootWindowState: Reducer<WindowState, RootWindowStateAction> = (
       const { rootWindowState = state } = action.payload;
       return rootWindowState;
     }
+    case SERVER_DARKMODE_CHANGED:
+      const hostname = action.payload?.hostname;
+      const darkmode = action.payload?.darkmode;
+      console.log(hostname);
+      console.log(darkmode);
 
-    case SIDE_BAR_DARKMODE_BUTTON_CLICKED:
-      return state = {...state, isDarkmode: action.payload}
+      if (
+        (state.selectedUrl?.startsWith('http://' + hostname) ||
+          state.selectedUrl?.startsWith('https://' + hostname)) &&
+        darkmode != state.isDarkMode
+      ) {
+        console.log('SERVER_DARKMODE_CHANGED:', darkmode);
+        return (state = { ...state, isDarkMode: darkmode });
+      }
+      return (state = { ...state });
+
+    case SERVER_SELECTED_URL_CHANGED:
+      console.log('SERVER_SELECTED_URL_CHANGED:');
+      console.log('Payload', JSON.stringify(action.payload));
+      return (state = { ...state, selectedUrl: action.payload });
 
     default:
       return state;

@@ -8,7 +8,9 @@ import { RootAction } from '../../../store/actions';
 import {
   SIDE_BAR_SERVER_SELECTED,
   SIDE_BAR_CONTEXT_MENU_TRIGGERED,
+  SERVER_SELECTED_URL_CHANGED,
 } from '../../actions';
+import { ipcRenderer } from 'electron';
 import {
   Avatar,
   Badge,
@@ -52,9 +54,17 @@ const ServerButton: FC<ServerButtonProps> = ({
   onDrop,
 }) => {
   const dispatch = useDispatch<Dispatch<RootAction>>();
-
+  if (isSelected) {
+    let currentUrl = window.localStorage.getItem('url-selected');
+    if (currentUrl != url) {
+      window.localStorage.setItem('url-selected', url);
+      console.log('set selected url', url);
+      dispatch({ type: SERVER_SELECTED_URL_CHANGED, payload: url });
+    }
+  }
   const handleServerClick = (): void => {
     dispatch({ type: SIDE_BAR_SERVER_SELECTED, payload: url });
+    dispatch({ type: SERVER_SELECTED_URL_CHANGED, payload: url });
   };
 
   const initials = useMemo(

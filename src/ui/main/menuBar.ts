@@ -21,9 +21,7 @@ import {
   MENU_BAR_TOGGLE_IS_SIDE_BAR_ENABLED_CLICKED,
   MENU_BAR_TOGGLE_IS_TRAY_ICON_ENABLED_CLICKED,
   SIDE_BAR_DOWNLOADS_BUTTON_CLICKED,
-  SIDE_BAR_SETTINGS_BUTTON_CLICKED,
-  SIDE_BAR_DARKMODE_BUTTON_CLICKED
-} from '../actions';
+  SIDE_BAR_SETTINGS_BUTTON_CLICKED} from '../actions';
 import { askForAppDataReset } from './dialogs';
 import { getRootWindow } from './rootWindow';
 import { getWebContentsByServerUrl } from './serverView';
@@ -565,21 +563,21 @@ const createWindowMenu = createSelector(
           dispatch({ type: SIDE_BAR_SETTINGS_BUTTON_CLICKED });
         },
       },
-      {
-        id: 'darkmode',
-        label: 'darkmode',
-        accelerator: 'CommandOrControl+L',
-        click: async () => {
-          const browserWindow = await getRootWindow();
+      // {
+      //   id: 'darkmode',
+      //   label: 'darkmode',
+      //   accelerator: 'CommandOrControl+L',
+      //   click: async () => {
+      //     const browserWindow = await getRootWindow();
 
-          if (!browserWindow.isVisible()) {
-            browserWindow.showInactive();
-          }
-          browserWindow.focus();
-          console.log("click darkmode", rootWindowState.isDarkmode)
-          dispatch({ type: SIDE_BAR_DARKMODE_BUTTON_CLICKED, payload: !reduxStore.getState().rootWindowState.isDarkmode });
-        },
-      },
+      //     if (!browserWindow.isVisible()) {
+      //       browserWindow.showInactive();
+      //     }
+      //     browserWindow.focus();
+      //     console.log("click darkmode", rootWindowState.isDarkMode)
+      //     // dispatch({ type: SERVER_DARKMODE_CHANGED, payload: !reduxStore.getState().rootWindowState.isDarkMode });
+      //   },
+      // },
       {
         id: 'showOnUnreadMessage',
         type: 'checkbox',

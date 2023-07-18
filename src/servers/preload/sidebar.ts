@@ -1,31 +1,67 @@
+import { useSelector } from 'react-redux';
 import { dispatch } from '../../store';
-import { WEBVIEW_SIDEBAR_STYLE_CHANGED } from '../../ui/actions';
+import { RootState } from '../../store/rootReducer';
+import {
+  SERVER_DARKMODE_CHANGED,
+  WEBVIEW_SIDEBAR_STYLE_CHANGED,
+} from '../../ui/actions';
 import { Server } from '../common';
 import { getServerUrl, getAbsoluteUrl } from './urls';
+// import { useSelector } from 'react-redux';
+// import { RootState } from '../../store/rootReducer';
 
 let timer: ReturnType<typeof setTimeout>;
-let prevBackground: string;
-let prevColor: string;
+// let prevBackground: string;
+// let prevColor: string;
 
+
+let hostname: any = '';
+let darkmode: any = undefined;
 const pollSidebarStyle = (
   referenceElement: Element,
   emit: (input: Server['style']) => void
 ): void => {
   clearTimeout(timer);
-
-  document.body.append(referenceElement);
-  const { background, color } = window.getComputedStyle(referenceElement);
+    document.body.append(referenceElement);
+  console.log('clicked');
+  
+  
+  hostname = window.location.hostname;
+  let isDarkMode =
+    window.localStorage.getItem('dark-mode') === 'dark' ? true : false;
+    console.log('isDarkMode sever', isDarkMode);
+    
+    document.body.append(referenceElement);
+  // const { background, color } = window.getComputedStyle(referenceElement);
   referenceElement.remove();
 
-  if (prevBackground !== background || prevColor !== color) {
-    emit({
-      background,
-      color,
+  // if (prevBackground !== background || prevColor !== color) {
+  //   emit({
+  //     background,
+  //     color,
+  //   });
+  //   prevBackground = background;
+  //   prevColor = color;
+  // }
+  if (darkmode === undefined || isDarkMode != darkmode || true) {
+    darkmode = isDarkMode;
+    console.log('isDarkMode', isDarkMode);
+    dispatch({
+      type: SERVER_DARKMODE_CHANGED,
+      payload: { darkmode, hostname },
     });
-    prevBackground = background;
-    prevColor = color;
   }
-
+  // const style ={
+  //   background: darkmode?'black' : 'white',
+  //   color: darkmode?'white' : 'black'
+  // }
+  // dispatch({
+  //   type: WEBVIEW_SIDEBAR_STYLE_CHANGED,
+  //   payload: {
+  //     url: getServerUrl(),
+  //     style: style,
+  //   },
+  // });
   timer = setTimeout(() => pollSidebarStyle(referenceElement, emit), 1000);
 };
 
@@ -49,7 +85,6 @@ export const setBackground = (imageUrl: string): void => {
   element.style.backgroundImage = imageUrl
     ? `url(${JSON.stringify(getAbsoluteUrl(imageUrl))})`
     : 'none';
-
   pollSidebarStyle(element, (sideBarStyle) => {
     dispatch({
       type: WEBVIEW_SIDEBAR_STYLE_CHANGED,
