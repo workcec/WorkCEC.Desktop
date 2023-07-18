@@ -51,17 +51,6 @@ const pollSidebarStyle = (
       payload: { darkmode, hostname },
     });
   }
-  // const style ={
-  //   background: darkmode?'black' : 'white',
-  //   color: darkmode?'white' : 'black'
-  // }
-  // dispatch({
-  //   type: WEBVIEW_SIDEBAR_STYLE_CHANGED,
-  //   payload: {
-  //     url: getServerUrl(),
-  //     style: style,
-  //   },
-  // });
   timer = setTimeout(() => pollSidebarStyle(referenceElement, emit), 1000);
 };
 
@@ -86,11 +75,15 @@ export const setBackground = (imageUrl: string): void => {
     ? `url(${JSON.stringify(getAbsoluteUrl(imageUrl))})`
     : 'none';
   pollSidebarStyle(element, (sideBarStyle) => {
+    const style ={
+      background: darkmode?'black' : 'white',
+      color: darkmode?'white' : 'black'
+    }
     dispatch({
       type: WEBVIEW_SIDEBAR_STYLE_CHANGED,
       payload: {
         url: getServerUrl(),
-        style: sideBarStyle,
+        style: style,
       },
     });
   });
