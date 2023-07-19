@@ -51,8 +51,8 @@ const pollSidebarStyle = (
       payload: { darkmode, hostname },
     });
     const style ={
-      background: darkmode?'black' : 'white',
-      color: darkmode?'white' : 'black'
+      background: darkmode ? '#2f343d' : '#ffffff',
+      color: darkmode ? 'white' : 'black'
     }
     dispatch({
       type: WEBVIEW_SIDEBAR_STYLE_CHANGED,
@@ -62,7 +62,7 @@ const pollSidebarStyle = (
       },
     });
   }
-  timer = setTimeout(() => pollSidebarStyle(referenceElement, emit), 1000);
+  timer = setTimeout(() => pollSidebarStyle(referenceElement, emit), 100);
 };
 
 let element: HTMLElement;

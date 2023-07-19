@@ -71,12 +71,9 @@ export const SideBar: FC = () => {
   const { t } = useTranslation();
 
   const currentView = useSelector(({ currentView }: RootState) => currentView);
-  const newStyle = {
-    background: 'var(--sidebar-background)',
-    color : 'var(--sidebar-item-text-color)'
-  }
+ 
   return (
-    <Wrapper sideBarStyle={isDarkmode? newStyle : style} isVisible={isVisible}>
+    <Wrapper sideBarStyle={style} isVisible={isVisible}>
       <Content withWindowButtons={process.platform === 'darwin'}>
         <ServerList>
           {sortedServers.map((server, order) => (
