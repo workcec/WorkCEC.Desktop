@@ -6,14 +6,10 @@ import {
 import { Server } from '../common';
 import { getServerUrl, getAbsoluteUrl } from './urls';
 
-
 let timer: ReturnType<typeof setTimeout>;
-// let prevBackground: string;
-// let prevColor: string;
 
-
-let hostname: any = '';
-let darkmode: any = undefined;
+let hostname: string;
+let darkmode: boolean;
 const pollSidebarStyle = (
   referenceElement: Element,
   emit: (input: Server['style']) => void
@@ -27,20 +23,10 @@ const pollSidebarStyle = (
   let isDarkMode =
     window.localStorage.getItem('dark-mode') === 'dark' ? true : false;
     console.log('isDarkMode sever', isDarkMode);
-    
     document.body.append(referenceElement);
-  // const { background, color } = window.getComputedStyle(referenceElement);
-  referenceElement.remove();
-
-  // if (prevBackground !== background || prevColor !== color) {
-  //   emit({
-  //     background,
-  //     color,
-  //   });
-  //   prevBackground = background;
-  //   prevColor = color;
-  // }
-  if (darkmode === undefined || isDarkMode != darkmode || true) {
+    // const { background, color } = window.getComputedStyle(referenceElement);
+    referenceElement.remove();
+  if (isDarkMode != darkmode) {
     darkmode = isDarkMode;
     console.log('isDarkMode', isDarkMode);
     dispatch({
