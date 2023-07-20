@@ -20,4 +20,6 @@ export type WindowState = {
     width: number;
     height: number;
   };
+  isDarkMode?: boolean
+  selectedUrl?: string
 };

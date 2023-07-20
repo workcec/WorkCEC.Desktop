@@ -10,7 +10,7 @@ import { createSelector, createStructuredSelector } from 'reselect';
 
 import { relaunchApp } from '../../app/main/app';
 import { CERTIFICATES_CLEARED } from '../../navigation/actions';
-import { dispatch, select, Service } from '../../store';
+import { dispatch, reduxStore, select, Service } from '../../store';
 import { RootState } from '../../store/rootReducer';
 import {
   MENU_BAR_ABOUT_CLICKED,
@@ -21,8 +21,7 @@ import {
   MENU_BAR_TOGGLE_IS_SIDE_BAR_ENABLED_CLICKED,
   MENU_BAR_TOGGLE_IS_TRAY_ICON_ENABLED_CLICKED,
   SIDE_BAR_DOWNLOADS_BUTTON_CLICKED,
-  SIDE_BAR_SETTINGS_BUTTON_CLICKED,
-} from '../actions';
+  SIDE_BAR_SETTINGS_BUTTON_CLICKED} from '../actions';
 import { askForAppDataReset } from './dialogs';
 import { getRootWindow } from './rootWindow';
 import { getWebContentsByServerUrl } from './serverView';
@@ -461,6 +460,7 @@ const selectWindowDeps = createStructuredSelector<
     | 'currentView'
     | 'isShowWindowOnUnreadChangedEnabled'
     | 'isAddNewServersEnabled'
+    | 'rootWindowState'
   >
 >({
   servers: ({ servers }) => servers,
@@ -470,6 +470,7 @@ const selectWindowDeps = createStructuredSelector<
   }) => isShowWindowOnUnreadChangedEnabled,
   isAddNewServersEnabled: ({ isAddNewServersEnabled }) =>
     isAddNewServersEnabled,
+  rootWindowState: ({ rootWindowState} ) => rootWindowState
 });
 
 const createWindowMenu = createSelector(
@@ -479,6 +480,7 @@ const createWindowMenu = createSelector(
     currentView,
     isShowWindowOnUnreadChangedEnabled,
     isAddNewServersEnabled,
+    rootWindowState
   }): MenuItemConstructorOptions => ({
     id: 'windowMenu',
     label: t('menus.windowMenu'),
@@ -561,6 +563,21 @@ const createWindowMenu = createSelector(
           dispatch({ type: SIDE_BAR_SETTINGS_BUTTON_CLICKED });
         },
       },
+      // {
+      //   id: 'darkmode',
+      //   label: 'darkmode',
+      //   accelerator: 'CommandOrControl+L',
+      //   click: async () => {
+      //     const browserWindow = await getRootWindow();
+
+      //     if (!browserWindow.isVisible()) {
+      //       browserWindow.showInactive();
+      //     }
+      //     browserWindow.focus();
+      //     console.log("click darkmode", rootWindowState.isDarkMode)
+      //     // dispatch({ type: SERVER_DARKMODE_CHANGED, payload: !reduxStore.getState().rootWindowState.isDarkMode });
+      //   },
+      // },
       {
         id: 'showOnUnreadMessage',
         type: 'checkbox',

@@ -9,6 +9,7 @@ import { SETTINGS_SET_IS_TRAY_ICON_ENABLED_CHANGED } from '../../../actions';
 
 type Props = {
   className?: string;
+  color: string;
 };
 
 export const TrayIcon: FC<Props> = (props) => {
@@ -32,7 +33,7 @@ export const TrayIcon: FC<Props> = (props) => {
     <Field className={props.className}>
       <Field.Row>
         <ToggleSwitch onChange={handleChange} checked={isTrayIconEnabled} />
-        <Field.Label htmlFor='toggle-switch'>
+        <Field.Label htmlFor='toggle-switch' style={{ color: props.color }}>
           {t('settings.options.trayIcon.title')}
         </Field.Label>
       </Field.Row>

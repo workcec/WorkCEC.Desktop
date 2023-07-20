@@ -7,8 +7,12 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/rootReducer';
 import { CertificatesTab } from './CertificatesTab';
 import { GeneralTab } from './GeneralTab';
+export interface SettingsViewProps {
+  backgroundColor: string;
+  color: string
+}
 
-export const SettingsView: FC = () => {
+export const SettingsView: FC<SettingsViewProps> = ({ backgroundColor, color }) => {
   const isVisible = useSelector(
     ({ currentView }: RootState) => currentView === 'settings'
   );
@@ -21,7 +25,7 @@ export const SettingsView: FC = () => {
       display={isVisible ? 'flex' : 'none'}
       flexDirection='column'
       height='full'
-      backgroundColor='surface'
+      backgroundColor={backgroundColor}
     >
       <Box
         width='full'
@@ -30,7 +34,7 @@ export const SettingsView: FC = () => {
         display='flex'
         flexDirection='row'
         flexWrap='nowrap'
-        color='default'
+        color={color}
         fontScale='h1'
       >
         {t('settings.title')}
@@ -51,8 +55,8 @@ export const SettingsView: FC = () => {
         </Tabs.Item>
       </Tabs>
       <Box m='x24'>
-        {(currentTab === 'general' && <GeneralTab />) ||
-          (currentTab === 'certificates' && <CertificatesTab />)}
+        {(currentTab === 'general' && <GeneralTab color = { color } />) ||
+          (currentTab === 'certificates' && <CertificatesTab color = { color} />)}
       </Box>
     </Box>
   );

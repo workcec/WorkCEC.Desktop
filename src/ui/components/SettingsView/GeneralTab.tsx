@@ -10,16 +10,20 @@ import { ReportErrors } from './features/ReportErrors';
 import { SideBar } from './features/SideBar';
 import { TrayIcon } from './features/TrayIcon';
 
-export const GeneralTab: FC = () => (
+export interface Props {
+  color: string
+}
+
+export const GeneralTab: FC<Props> = (props) => (
   <Box is='form' margin={24} maxWidth={960} flexGrow={1} flexShrink={1}>
-    <FieldGroup>
-      <ReportErrors />
-      <FlashFrame />
-      <HardwareAcceleration />
-      <InternalVideoChatWindow />
-      <TrayIcon />
+    <FieldGroup >
+      <ReportErrors color = {props.color}/>
+      <FlashFrame color = {props.color}/>
+      <HardwareAcceleration color = {props.color}/>
+      <InternalVideoChatWindow color = {props.color}/>
+      <TrayIcon color = {props.color}/>
       {process.platform === 'win32' && <MinimizeOnClose />}
-      <SideBar />
+      <SideBar color = {props.color}/>
       {process.platform !== 'darwin' && <MenuBar />}
     </FieldGroup>
   </Box>

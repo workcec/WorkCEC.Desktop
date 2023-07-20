@@ -5,7 +5,6 @@ import {
   Callout,
   Field,
   FieldGroup,
-  Margins,
   TextInput,
   Tile,
 } from '@rocket.chat/fuselage';

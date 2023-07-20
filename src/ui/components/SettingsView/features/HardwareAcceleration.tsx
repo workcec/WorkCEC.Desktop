@@ -9,6 +9,7 @@ import { SETTINGS_SET_HARDWARE_ACCELERATION_OPT_IN_CHANGED } from '../../../acti
 
 type Props = {
   className?: string;
+  color: string;
 };
 
 export const HardwareAcceleration: FC<Props> = (props) => {
@@ -36,7 +37,7 @@ export const HardwareAcceleration: FC<Props> = (props) => {
           onChange={handleChange}
           checked={isHardwareAccelerationEnabled}
         />
-        <Field.Label htmlFor='toggle-switch'>
+        <Field.Label htmlFor='toggle-switch' style={{ color: props.color }}>
           {t('settings.options.hardwareAcceleration.title')}
         </Field.Label>
       </Field.Row>

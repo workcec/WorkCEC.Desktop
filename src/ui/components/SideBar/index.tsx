@@ -11,8 +11,7 @@ import { RootState } from '../../../store/rootReducer';
 import {
   SIDE_BAR_ADD_NEW_SERVER_CLICKED,
   SIDE_BAR_DOWNLOADS_BUTTON_CLICKED,
-  SIDE_BAR_SETTINGS_BUTTON_CLICKED,
-} from '../../actions';
+  SIDE_BAR_SETTINGS_BUTTON_CLICKED} from '../../actions';
 import { useServers } from '../hooks/useServers';
 import ServerButton from './ServerButton';
 import {
@@ -37,6 +36,11 @@ export const SideBar: FC = () => {
   const isAddNewServersEnabled = useSelector(
     ({ isAddNewServersEnabled }: RootState) => isAddNewServersEnabled
   );
+
+  const isDarkmode = useSelector(
+    (state: RootState) => state.rootWindowState.isDarkMode
+  );
+
   const isVisible = servers.length > 0 && isSideBarEnabled;
   const style = useMemo(
     () => servers.find(({ selected }) => selected)?.style || {},
@@ -61,10 +65,13 @@ export const SideBar: FC = () => {
   const handelSettingsButtonClicked = (): void => {
     dispatch({ type: SIDE_BAR_SETTINGS_BUTTON_CLICKED });
   };
+  const handelDarkmodeButtonClicked = async (): Promise<void> => {
+    // dispatch({ type: SERVER_DARKMODE_CHANGED, payload: !isDarkmode });
+  };
   const { t } = useTranslation();
 
   const currentView = useSelector(({ currentView }: RootState) => currentView);
-
+ 
   return (
     <Wrapper sideBarStyle={style} isVisible={isVisible}>
       <Content withWindowButtons={process.platform === 'darwin'}>
@@ -129,6 +136,14 @@ export const SideBar: FC = () => {
               <Icon name='cog' />
             </SidebarActionButton>
           </Button>
+          {/* <Button>
+            <SidebarActionButton
+              tooltip={isDarkmode ? 'Darkmode' : 'Lightmode'}
+              onClick={handelDarkmodeButtonClicked}
+            >
+              <Icon name='check' />
+            </SidebarActionButton>
+          </Button> */}
         </BottomButtons>
       </Content>
     </Wrapper>

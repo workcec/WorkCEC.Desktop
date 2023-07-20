@@ -5,6 +5,7 @@ import { Dispatch } from 'redux';
 import { Server } from '../../../servers/common';
 import { RootAction } from '../../../store/actions';
 import {
+  SERVER_SELECTED_URL_CHANGED,
   SIDE_BAR_SERVERS_SORTED,
   SIDE_BAR_SERVER_SELECTED,
 } from '../../actions';
@@ -68,6 +69,7 @@ export const useSorting = <S extends Server>(
         dispatch({ type: SIDE_BAR_SERVERS_SORTED, payload: serversSorting });
       }
       dispatch({ type: SIDE_BAR_SERVER_SELECTED, payload: url });
+      dispatch({ type: SERVER_SELECTED_URL_CHANGED, payload: url });
     }
   };
 

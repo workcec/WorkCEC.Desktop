@@ -9,6 +9,7 @@ import { SETTINGS_SET_INTERNALVIDEOCHATWINDOW_OPT_IN_CHANGED } from '../../../ac
 
 type Props = {
   className?: string;
+  color: string;
 };
 
 export const InternalVideoChatWindow: FC<Props> = (props) => {
@@ -37,7 +38,7 @@ export const InternalVideoChatWindow: FC<Props> = (props) => {
           onChange={handleChange}
           checked={isInternalVideoChatWindowEnabled}
         />
-        <Field.Label htmlFor='toggle-switch'>
+        <Field.Label htmlFor='toggle-switch' style={{ color: props.color }}>
           {t('settings.options.internalVideoChatWindow.title')}
         </Field.Label>
       </Field.Row>

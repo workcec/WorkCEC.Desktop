@@ -31,6 +31,10 @@ export const Shell: FC = () => {
     };
   }, [appPath]);
 
+  const isDarkmode = useSelector(
+    (state: RootState) => state.rootWindowState.isDarkMode
+  );
+
   return (
     <>
       <GlobalStyles />
@@ -40,8 +44,8 @@ export const Shell: FC = () => {
         <ViewsWrapper>
           <ServersView />
           <AddServerView />
-          <DownloadsManagerView />
-          <SettingsView />
+          <DownloadsManagerView backgroundColor={isDarkmode ? '#17212B' : 'surface'} color={isDarkmode ? 'white' : 'black'} />
+          <SettingsView backgroundColor={isDarkmode ? '#17212B' : 'surface'} color={isDarkmode ? 'white' : 'black'} />
         </ViewsWrapper>
       </Wrapper>
       <AboutDialog />
