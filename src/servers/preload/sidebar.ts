@@ -1,14 +1,11 @@
-import { useSelector } from 'react-redux';
 import { dispatch } from '../../store';
-import { RootState } from '../../store/rootReducer';
 import {
   SERVER_DARKMODE_CHANGED,
   WEBVIEW_SIDEBAR_STYLE_CHANGED,
 } from '../../ui/actions';
 import { Server } from '../common';
 import { getServerUrl, getAbsoluteUrl } from './urls';
-// import { useSelector } from 'react-redux';
-// import { RootState } from '../../store/rootReducer';
+
 
 let timer: ReturnType<typeof setTimeout>;
 // let prevBackground: string;
@@ -62,7 +59,7 @@ const pollSidebarStyle = (
       },
     });
   }
-  timer = setTimeout(() => pollSidebarStyle(referenceElement, emit), 100);
+  timer = setTimeout(() => pollSidebarStyle(referenceElement, emit), 200);
 };
 
 let element: HTMLElement;

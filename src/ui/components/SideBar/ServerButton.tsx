@@ -10,7 +10,7 @@ import {
   SIDE_BAR_CONTEXT_MENU_TRIGGERED,
   SERVER_SELECTED_URL_CHANGED,
 } from '../../actions';
-import { ipcRenderer } from 'electron';
+
 import {
   Avatar,
   Badge,
