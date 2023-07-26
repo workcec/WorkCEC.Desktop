@@ -43,8 +43,11 @@ export const SideBar: FC = () => {
 
   const isVisible = servers.length > 0 && isSideBarEnabled;
   const style = useMemo(
-    () => servers.find(({ selected }) => selected)?.style || {},
-    [servers]
+    () => servers.find(({ selected }) => selected)?.style || {
+      background: isDarkmode ? '#2f343d' : 'white',
+      color: isDarkmode ? 'white' : 'black'
+    },
+    [servers,isDarkmode]
   );
   const isEachShortcutVisible = useKeyboardShortcuts();
   const {
