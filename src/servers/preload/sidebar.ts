@@ -15,20 +15,11 @@ const pollSidebarStyle = (
   emit: (input: Server['style']) => void
 ): void => {
   clearTimeout(timer);
-    document.body.append(referenceElement);
-  console.log('clicked');
-  
-  
   hostname = window.location.hostname;
   let isDarkMode =
     window.localStorage.getItem('dark-mode') === 'dark' ? true : false;
-    console.log('isDarkMode sever', isDarkMode);
-    document.body.append(referenceElement);
-    // const { background, color } = window.getComputedStyle(referenceElement);
-    referenceElement.remove();
   if (isDarkMode != darkmode) {
     darkmode = isDarkMode;
-    console.log('isDarkMode', isDarkMode);
     dispatch({
       type: SERVER_DARKMODE_CHANGED,
       payload: { darkmode, hostname },

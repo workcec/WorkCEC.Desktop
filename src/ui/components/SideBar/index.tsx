@@ -68,9 +68,6 @@ export const SideBar: FC = () => {
   const handelSettingsButtonClicked = (): void => {
     dispatch({ type: SIDE_BAR_SETTINGS_BUTTON_CLICKED });
   };
-  const handelDarkmodeButtonClicked = async (): Promise<void> => {
-    // dispatch({ type: SERVER_DARKMODE_CHANGED, payload: !isDarkmode });
-  };
   const { t } = useTranslation();
 
   const currentView = useSelector(({ currentView }: RootState) => currentView);

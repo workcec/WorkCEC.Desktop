@@ -10,7 +10,7 @@ import { createSelector, createStructuredSelector } from 'reselect';
 
 import { relaunchApp } from '../../app/main/app';
 import { CERTIFICATES_CLEARED } from '../../navigation/actions';
-import { dispatch, reduxStore, select, Service } from '../../store';
+import { dispatch, select, Service } from '../../store';
 import { RootState } from '../../store/rootReducer';
 import {
   MENU_BAR_ABOUT_CLICKED,
@@ -479,9 +479,7 @@ const createWindowMenu = createSelector(
     servers,
     currentView,
     isShowWindowOnUnreadChangedEnabled,
-    isAddNewServersEnabled,
-    rootWindowState
-  }): MenuItemConstructorOptions => ({
+    isAddNewServersEnabled  }): MenuItemConstructorOptions => ({
     id: 'windowMenu',
     label: t('menus.windowMenu'),
     role: 'windowMenu',

@@ -6,10 +6,8 @@ import {
   ROOT_WINDOW_STATE_CHANGED,
   SERVER_DARKMODE_CHANGED,
   SERVER_SELECTED_URL_CHANGED,
-  WEBVIEW_SIDEBAR_STYLE_CHANGED,
 } from '../actions';
 import { WindowState } from '../common';
-import { dispatch } from '../../store';
 
 type RootWindowStateAction =
   | ActionOf<typeof ROOT_WINDOW_STATE_CHANGED>
@@ -47,8 +45,6 @@ export const rootWindowState: Reducer<WindowState, RootWindowStateAction> = (
     case SERVER_DARKMODE_CHANGED:
       const hostname = action.payload?.hostname;
       const darkmode = action.payload?.darkmode;
-      console.log(hostname);
-      console.log(darkmode);
 
       if (
         (state.selectedUrl?.startsWith('http://' + hostname) ||
